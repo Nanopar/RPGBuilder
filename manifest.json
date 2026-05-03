@@ -1,0 +1,23 @@
+{
+  "name": "RPGBuilder 26",
+  "short_name": "RPGB26",
+  "description": "Nanoparticle's RPGBuilder 26 WebApp Version",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#dee7ee",
+  "theme_color": "#dee7ee",
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

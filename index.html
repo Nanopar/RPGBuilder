@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/x-icon" href="icons/icon-512x512.png">
+    <title>RPGBuilder 26</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+    <link rel="stylesheet" href="icons/editor/icons.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.86.0/dist/phaser.min.js"></script>
+    
+
+
+    
+  <script type="module" crossorigin src="/assets/index-Bip3K-LS.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CTCK4sM-.css">
+</head>
+
+<body oncontextmenu="return false;">
+
+    <header id="main-menu">
+      <div class="menu-wrapper">
+            <div class="menu-trigger" data-index="${index}"><img src="icons/icon-512x512.png" width="24px"></div>
+            <div class="dropdown" id="dropdown-${index}">
+                
+            </div>
+        </div>
+    </header>
+
+    <div class="toolbar">
+        <div class="tool-icon" onclick="Editor.onCommand('file-new')" title="New Project"><img src="icons/editor/document.png" width="24px"></div>
+        <div class="tool-icon" onclick="Editor.onCommand('file-open')" title="Open Project"><img src="icons/editor/folder.png" width="28px"></div>
+        <div class="tool-icon" onclick="Editor.onCommand('file-save')" title="Save All"><img src="icons/editor/floppy_disk.png" width="24px"></div>
+        <div class="divider"></div>
+        <div class="tool-icon" id="layer-a" onclick="Editor.onCommand('tileSelector-a'); Editor.onCommand('layer-a');" title="Layer A"><img src="icons/editor/a.png" width="32px"></div>
+        <div class="tool-icon" id="layer-b" onclick="Editor.onCommand('tileSelector-b'); Editor.onCommand('layer-b');" title="Layer B"><img src="icons/editor/b.png" width="32px"></div>
+        <div class="tool-icon" id="layer-c" onclick="Editor.onCommand('tileSelector-c'); Editor.onCommand('layer-c');" title="Layer C"><img src="icons/editor/c.png" width="32px"></div>
+        <div class="tool-icon" id="layer-o" onclick="Editor.onCommand('object-mode')" title="Object Mode"><img src="icons/editor/objects.png" width="32px"></div>
+        <div class="divider"></div>
+        <div class="tool-icon" id="tool-brush" onclick="Editor.onCommand('tool-brush');" title="Tile Brush"><img src="icons/editor/brush.png" width="32px"></div>
+        <div class="tool-icon" id="tool-brush" onclick="Editor.onCommand('tool-brush');" title="Rectangle Tile Brush"><img src="icons/editor/square.png" width="24px"></div>
+        <div class="divider"></div>
+        <div class="tool-icon" id="tool-brush" onclick="Editor.onCommand('post-processing');" title="Level Post Processing"><img src="icons/editor/pp.png" width="32px"></div>
+        <div class="divider"></div>
+        <div class="tool-icon" title="Common Actions"><img src="icons/editor/script.png" width="32px"></div>
+        <div class="tool-icon" title="Plugins"><img src="icons/editor/puzzle.png" width="24px"></div>
+        <div class="tool-icon" title="Editor Plugins"><img src="icons/editor/plug.png" width="24px"></div>
+        <div class="divider"></div>
+
+        <div style="flex:1"></div>
+        <div class="tool-icon play" onclick="Editor.onCommand('build');" title="Publish"><i class="fas fa-upload"></i></div>
+        <div class="tool-icon play" onclick="Editor.onCommand('build');" title="Build"><img src="icons/editor/hammer.png" width="24px"></div>
+        <div class="tool-icon play" title="Play Test Level"><img src="icons/editor/play-grey.png" width="32px"></div>
+        <div class="tool-icon play" onclick="Editor.onCommand('test');" title="Play Test"><img src="icons/editor/play.png" width="32px"></div>
+    </div>
+
+    <div class="main-layout">
+        <div class="sidebar">
+            <div class="panel-header">
+                <span id="projectNameDisplay">No project open!</span>
+                <i class="fas fa-filter"></i>
+            </div>
+            <div id="explorerList" class="list-area">
+                </div>
+
+            <div class="panel-header">Tilesets</div>
+            <div class="tool-icon-container" style="display: flex; gap: 8px; margin-top: 5px;">
+                <div class="mv-btn" id="tileSelector-a" onclick="Editor.onCommand('tileSelector-a'); Editor.onCommand('layer-a');" title="Switch to A Tiles">A</div>
+                <div class="mv-btn" id="tileSelector-b" onclick="Editor.onCommand('tileSelector-b'); Editor.onCommand('layer-b');" title="Switch to B Tiles">B</div>
+                <div class="mv-btn" id="tileSelector-c" onclick="Editor.onCommand('tileSelector-c'); Editor.onCommand('layer-c');" title="Switch to C Tiles">C</div>
+            </div>
+            <div class="list-area" style="height: 200px; overflow: auto;">
+                <canvas id="tileSelector" width="768" height="576"></canvas>
+            </div>
+        </div>
+
+        <div class="viewport">
+            <span id="viewportIndicator" style="color: #292929; font-weight: 500; font-size: x-large;"></span>
+            <canvas id="levelCanvas"></canvas>
+        </div>
+
+        <div id="properties" class="inspector">
+            <div class="panel-header">RPGBuilder News</div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div style="display: flex; gap: 15px;">
+            <span id="statusIndicator" style="color: #28a745;">● Ready</span>
+            <span>© RPGBuilder 26 (RPGB-26.5.3)</span>
+        </div>
+        <div>© Nanoparticles | 2026</div>
+    </footer>
+    <!-- <footer style="display: flex; gap: 15px; height: 64px;">
+        Support me pls u can buy the ad free version for a one time fee of $5 anyways its just a little ad on the bottom pls unblock ur ads :(
+    </footer> -->
+
+    <script type= "module" src="https://code.jquery.com/jquery-4.0.0.js"></script>
+    <script type= "module" src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+    <script type= "module" src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+</body>
+
+</html>

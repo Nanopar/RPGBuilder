@@ -1,0 +1,60 @@
+.icon-folder{
+    background-image: url('https://peacocksoftware.com/sites/peacocksoftware/silk_icons/folder.png');
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+}
+
+.icon-object{
+    background-image: url('https://peacocksoftware.com/sites/peacocksoftware/silk_icons/brick.png');
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+}
+
+.icon-level{
+    background-image: url('https://peacocksoftware.com/sites/peacocksoftware/silk_icons/layers.png');
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+}
+
+.icon-settings{
+    background-image: url('https://peacocksoftware.com/sites/peacocksoftware/silk_icons/cog.png');
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+}
+.icon-property{
+    background-image: url('https://peacocksoftware.com/sites/peacocksoftware/silk_icons/wrench.png');
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+}
+
+.icon-plugin{
+    background-image: url('https://peacocksoftware.com/sites/peacocksoftware/silk_icons/plugin.png');
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+}
+.icon-plugin-prop{
+    background-image: url('https://peacocksoftware.com/sites/peacocksoftware/silk_icons/plugin_edit.png');
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-size: cover;
+    background-position: center;
+}
