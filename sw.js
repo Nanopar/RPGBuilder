@@ -28,7 +28,7 @@ async function getHandleFromDB() {
 self.addEventListener('fetch', (event) => {
     const url = new URL(event.request.url);
 
-    if (url.pathname.startsWith('/preview/')) {
+    if (url.pathname.startsWith('/RPGBuilder/preview/')) {
         event.respondWith(async function() {
             try {
                 const handle = await getHandleFromDB();
@@ -36,10 +36,10 @@ self.addEventListener('fetch', (event) => {
                     return new Response("No folder handle found in IndexedDB. Please pick a folder in the editor first.", { status: 404 });
                 }
 
-                let pathStr = url.pathname.replace('/preview/', '');
+                let pathStr = url.pathname.replace('/RPGBuilder/preview/', '');
                 
                 if (pathStr === '' || pathStr.endsWith('/')) {
-                    pathStr += 'index.html';
+                    pathStr += '/preview/index.html';
                 }
 
                 const path = pathStr.split('/');
